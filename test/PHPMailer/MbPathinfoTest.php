@@ -8,7 +8,7 @@
  * @author    Andy Prevost
  * @copyright 2012 - 2020 Marcus Bointon
  * @copyright 2004 - 2009 Andy Prevost
- * @license   http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
+ * @license   https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html GNU Lesser General Public License
  */
 
 namespace PHPMailer\Test\PHPMailer;
@@ -23,7 +23,6 @@ use Yoast\PHPUnitPolyfills\TestCases\TestCase;
  */
 final class MbPathinfoTest extends TestCase
 {
-
     /**
      * Verify retrieving information about a file path when the $options parameter has been passed.
      *
@@ -43,7 +42,7 @@ final class MbPathinfoTest extends TestCase
      *
      * @return array
      */
-    public function dataMb_pathinfoWithoutOptions()
+    public static function dataMb_pathinfoWithoutOptions()
     {
         return [
             'Empty string' => [
@@ -132,7 +131,7 @@ final class MbPathinfoTest extends TestCase
      *
      * @return array
      */
-    public function dataMb_pathinfoWithOptions()
+    public static function dataMb_pathinfoWithOptions()
     {
         return [
             'Option: PATHINFO_DIRNAME' => [

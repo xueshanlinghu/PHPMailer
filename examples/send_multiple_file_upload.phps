@@ -20,7 +20,7 @@ if (array_key_exists('userfile', $_FILES)) {
     //Attach multiple files one by one
     for ($ct = 0, $ctMax = count($_FILES['userfile']['tmp_name']); $ct < $ctMax; $ct++) {
         //Extract an extension from the provided filename
-        $ext = PHPMailer::mb_pathinfo($_FILES['userfile']['name'], PATHINFO_EXTENSION);
+        $ext = PHPMailer::mb_pathinfo($_FILES['userfile']['name'][$ct], PATHINFO_EXTENSION);
         //Define a safe location to move the uploaded file to, preserving the extension
         $uploadfile = tempnam(sys_get_temp_dir(), hash('sha256', $_FILES['userfile']['name'][$ct])) . '.' . $ext;
         $filename = $_FILES['userfile']['name'][$ct];
@@ -54,7 +54,7 @@ if (array_key_exists('userfile', $_FILES)) {
         <input type="submit" value="Send Files">
     </form>
 <?php } else {
-    echo htmlspecialchars($msg);
+    echo htmlspecialchars($msg, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401);
 } ?>
 </body>
 </html>

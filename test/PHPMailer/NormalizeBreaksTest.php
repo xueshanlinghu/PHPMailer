@@ -8,7 +8,7 @@
  * @author    Andy Prevost
  * @copyright 2012 - 2020 Marcus Bointon
  * @copyright 2004 - 2009 Andy Prevost
- * @license   http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
+ * @license   https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html GNU Lesser General Public License
  */
 
 namespace PHPMailer\Test\PHPMailer;
@@ -24,14 +24,13 @@ use Yoast\PHPUnitPolyfills\TestCases\TestCase;
  */
 final class NormalizeBreaksTest extends TestCase
 {
-
     /**
      * Test line break normalization.
      *
      * @dataProvider dataNormalizeBreaks
      *
      * @param string $input     Input text string.
-     * @param string $expected  Expected funtion output.
+     * @param string $expected  Expected function output.
      * @param string $breaktype Optional. What kind of line break to use.
      */
     public function testNormalizeBreaks($input, $expected, $breaktype = null)
@@ -45,7 +44,7 @@ final class NormalizeBreaksTest extends TestCase
      *
      * @return array
      */
-    public function dataNormalizeBreaks()
+    public static function dataNormalizeBreaks()
     {
         $LE           = PHPMailer::getLE();
         $baseExpected = 'hello' . PHPMailer::CRLF . 'World' . PHPMailer::CRLF . 'Again' . PHPMailer::CRLF;

@@ -8,7 +8,7 @@
  * @author    Andy Prevost
  * @copyright 2012 - 2020 Marcus Bointon
  * @copyright 2004 - 2009 Andy Prevost
- * @license   http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
+ * @license   https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html GNU Lesser General Public License
  */
 
 namespace PHPMailer\Test\PHPMailer;
@@ -20,7 +20,6 @@ use PHPMailer\Test\PreSendTestCase;
  */
 final class ICalTest extends PreSendTestCase
 {
-
     /**
      * Test ICal method.
      *
@@ -77,7 +76,7 @@ final class ICalTest extends PreSendTestCase
      *
      * @return array
      */
-    public function dataICalMethod()
+    public static function dataICalMethod()
     {
         return [
             'Valid method: request (default)' => [

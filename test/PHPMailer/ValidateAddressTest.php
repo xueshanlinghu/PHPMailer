@@ -8,7 +8,7 @@
  * @author    Andy Prevost
  * @copyright 2012 - 2020 Marcus Bointon
  * @copyright 2004 - 2009 Andy Prevost
- * @license   http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
+ * @license   https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html GNU Lesser General Public License
  */
 
 namespace PHPMailer\Test\PHPMailer;
@@ -18,8 +18,6 @@ use Yoast\PHPUnitPolyfills\TestCases\TestCase;
 
 /**
  * Test email address validation.
- *
- * Test addresses obtained from {@link http://isemail.info}.
  *
  * @todo Recommendation JRF: Rework the tests to actually test all test cases
  *       against each type of build-in pattern.
@@ -33,7 +31,6 @@ use Yoast\PHPUnitPolyfills\TestCases\TestCase;
  */
 final class ValidateAddressTest extends TestCase
 {
-
     /**
      * Run before this test class.
      */
@@ -86,7 +83,7 @@ final class ValidateAddressTest extends TestCase
      *
      * @return array
      */
-    public function dataPatterns()
+    public static function dataPatterns()
     {
         $patterns = [
             'auto',
@@ -97,7 +94,7 @@ final class ValidateAddressTest extends TestCase
             'noregex',
         ];
 
-        return $this->arrayToNamedDataProvider($patterns);
+        return self::arrayToNamedDataProvider($patterns);
     }
 
     /**
@@ -119,7 +116,7 @@ final class ValidateAddressTest extends TestCase
      *
      * @return array
      */
-    public function dataValidAddresses()
+    public static function dataValidAddresses()
     {
         $validaddresses = [
             'first@example.org',
@@ -196,7 +193,7 @@ final class ValidateAddressTest extends TestCase
             'test@example.com',
         ];
 
-        return $this->arrayToNamedDataProvider($validaddresses, 'Valid: ');
+        return self::arrayToNamedDataProvider($validaddresses, 'Valid: ');
     }
 
     /**
@@ -204,7 +201,7 @@ final class ValidateAddressTest extends TestCase
      *
      * @return array
      */
-    public function dataAsciiAddresses()
+    public static function dataAsciiAddresses()
     {
         $asciiaddresses = [
             'first.last@xn--bcher-kva.ch',
@@ -212,7 +209,7 @@ final class ValidateAddressTest extends TestCase
             'first.last@xn--phplst-6va.com',
         ];
 
-        return $this->arrayToNamedDataProvider($asciiaddresses, 'Valid ascii: ');
+        return self::arrayToNamedDataProvider($asciiaddresses, 'Valid ascii: ');
     }
 
     /**
@@ -222,7 +219,7 @@ final class ValidateAddressTest extends TestCase
      *
      * @return array
      */
-    public function dataValidIPv6()
+    public static function dataValidIPv6()
     {
         $validipv6 = [
             //'first.last@[IPv6:::a2:a3:a4:b1:b2:b3:b4]',
@@ -255,7 +252,7 @@ final class ValidateAddressTest extends TestCase
             //'first.last@[IPv6:1111:2222:3333::4444:5555:6666:7777]',
         ];
 
-        return $this->arrayToNamedDataProvider($validipv6, 'Valid IPv6: ');
+        return self::arrayToNamedDataProvider($validipv6, 'Valid IPv6: ');
     }
 
     /**
@@ -279,7 +276,7 @@ final class ValidateAddressTest extends TestCase
      *
      * @return array
      */
-    public function dataInvalidAddresses()
+    public static function dataInvalidAddresses()
     {
         $invalidaddresses = [
             'first.last@sub.do,com',
@@ -425,7 +422,7 @@ final class ValidateAddressTest extends TestCase
             "\r\n this is a spam mail.\\\n.\r\n QUIT\r\n ) a@example.net",
         ];
 
-        return $this->arrayToNamedDataProvider($invalidaddresses, 'Invalid: ');
+        return self::arrayToNamedDataProvider($invalidaddresses, 'Invalid: ');
     }
 
     /**
@@ -433,7 +430,7 @@ final class ValidateAddressTest extends TestCase
      *
      * @return array
      */
-    public function dataUnicodeAddresses()
+    public static function dataUnicodeAddresses()
     {
         $unicodeaddresses = [
             'first.last@bücher.ch',
@@ -441,7 +438,7 @@ final class ValidateAddressTest extends TestCase
             'first.last@phplíst.com',
         ];
 
-        return $this->arrayToNamedDataProvider($unicodeaddresses, 'Invalid unicode: ');
+        return self::arrayToNamedDataProvider($unicodeaddresses, 'Invalid Unicode: ');
     }
 
     /**
@@ -452,7 +449,7 @@ final class ValidateAddressTest extends TestCase
      *
      * @return array
      */
-    public function dataInvalidPHPPattern()
+    public static function dataInvalidPHPPattern()
     {
         $invalidphp = [
             'a@b',
@@ -463,7 +460,7 @@ final class ValidateAddressTest extends TestCase
             'first.last@example.123',
         ];
 
-        return $this->arrayToNamedDataProvider($invalidphp, 'Invalid PHP: ');
+        return self::arrayToNamedDataProvider($invalidphp, 'Invalid PHP: ');
     }
 
     /**
@@ -476,7 +473,7 @@ final class ValidateAddressTest extends TestCase
      *
      * @return array
      */
-    protected function arrayToNamedDataProvider($items, $prefix = '')
+    protected static function arrayToNamedDataProvider($items, $prefix = '')
     {
         $provider = [];
         foreach ($items as $item) {
